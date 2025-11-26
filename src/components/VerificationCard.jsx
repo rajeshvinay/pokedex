@@ -55,9 +55,13 @@ export default function VerificationCard({data}){
                 </div>
             </div>
 
-            <div className="verification-right">
+            <div className="verification-right" title="Use this space to inform customers about new updates, share hiring info, or highlight critical notices.">
                 <div className="verification-right-inner">
-                    <p>Use this space to inform customers about new updates, share hiring info, or highlight critical notices.</p>
+                    <img className="default-img" src={'/pokemon/001.png'}></img>
+                    <p><a>Click here</a> to purchase the above Pokemon</p>
+                </div>
+                <div>
+                    <p style={{fontSize:'12px',display:'none'}}>Use this space to inform customers about new updates, share hiring info, or highlight critical notices.</p>
                 </div>
             </div>
         </div>
