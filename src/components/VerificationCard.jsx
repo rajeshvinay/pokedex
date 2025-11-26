@@ -1,0 +1,65 @@
+export default function VerificationCard({data}){
+    // data may have dynamic values, fallback to sample data
+    const trustScore = data?.trustScore ?? 92
+    const monthly = data?.monthly ?? '4,500'
+    const total = data?.total ?? '32,560'
+    const lastVerified = data?.lastVerified ?? 'October 2025'
+    return (
+        <div className="verification-card">
+            <div className="verification-left">
+                <div className="verification-header">
+                    <div className="badge">✔</div>
+                    <h4>This website has been independently verified for trust and legitimacy by InVerify</h4>
+                </div>
+
+                <div className="verification-section">
+                    <h6>Trust Score</h6>
+                    <div className="score-row">
+                        <div className="score-bars">
+                             <span>[</span>
+                            {Array.from({length:10}).map((_,i)=>{
+                                const active = i < Math.round(trustScore/10)
+                                return (
+                                    <div key={i} className={`score-bar ${active? 'active':''}`}></div>
+                                )
+                            })}
+                             <span>]</span>
+                        </div>
+                        <div className="score-text">{trustScore} / 100</div>
+                    </div>
+                </div>
+
+                <ul className="verification-checklist">
+                    <li>Registered Indian entity</li>
+                    <li>Valid .in domain</li>
+                    <li>Payment Gateways Verified</li>
+                    <li>No scam reports</li>
+                </ul>
+
+                <div className="verification-stats">
+                    <div>Monthly Visitors: <strong>{monthly}</strong></div>
+                    <div>Total Visitors Since Launch: <strong>{total}</strong></div>
+                </div>
+
+                {/* <div className="verification-socials">
+                    <div className="social-icon">in</div>
+                    <div className="social-icon">f</div>
+                    <div className="social-icon muted">ig</div>
+                    <div className="social-icon">yt</div>
+                </div> */}
+
+                <div className="verification-verified">Last verified on {lastVerified}</div>
+
+                <div className="verification-cta">
+                    <button className="button-primary">View Full Verification Report</button>
+                </div>
+            </div>
+
+            <div className="verification-right">
+                <div className="verification-right-inner">
+                    <p>Use this space to inform customers about new updates, share hiring info, or highlight critical notices.</p>
+                </div>
+            </div>
+        </div>
+    )
+}
